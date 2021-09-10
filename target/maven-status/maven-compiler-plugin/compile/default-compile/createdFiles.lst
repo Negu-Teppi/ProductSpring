@@ -1,0 +1,12 @@
+com\manhle\configuration\SpringConfig.class
+com\manhle\entities\ProductDetailEntity.class
+com\manhle\entities\SizeEntity.class
+com\manhle\entities\ProductEntity.class
+com\manhle\entities\ColorEntity.class
+com\manhle\service\ProductService.class
+com\manhle\entities\ImageEntity.class
+com\manhle\entities\CategoryEntity.class
+com\manhle\enums\Size.class
+com\manhle\main\Main.class
+com\manhle\repository\ProductRepository.class
+com\manhle\enums\Color.class
