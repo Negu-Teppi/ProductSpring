@@ -1,6 +1,8 @@
 package com.manhle.service;
 
 import com.manhle.entities.ProductEntity;
+import com.manhle.enums.Color;
+import com.manhle.enums.Size;
 import com.manhle.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,35 +38,34 @@ public class ProductService {
         return productRepository.existsById(id);
     }
 
-    /*public List<ProductEntity> search(String str){
-//        return  productRepository.findByNameContainingOrderByCreateDateDesc(str);
-//        return  productRepository.findNameLikeOrderByCreateDateDescJPQL(str);
-        return  productRepository.findNameLikeOrderByCreateDateDescNative(str);
+    public List<ProductEntity> searchByNameAndCreateDate(String str, Date createdate1, Date createDate2){
+//        return productRepository.findByNameContainingAndCreateDateBetween(str, createdate1, createDate2);
+//        return productRepository.findNameAndCreateDateJPQL(str, createdate1, createDate2);
+        return productRepository.findNameAndCreateDateNative(str, createdate1, createDate2);
     }
 
-    public List<ProductEntity> searchByPriceGreaterThanEqual(double price){
-//        return productRepository.findByPriceGreaterThanEqual(price);
-//        return  productRepository.findPriceGreaterThanEqualJPQL(price);
-        return  productRepository.findPriceGreaterThanEqualNative(price);
+    public List<ProductEntity> searchCategoryNameAndPrice(String str, int price){
+//        return productRepository.findByCategory_NameContainingAndProductDetail_PriceGreaterThanEqual(str, price);
+//        return productRepository.findCategoryNameAndPriceJPQL(str, price);
+        return productRepository.findCategoryNameAndPriceNative(str, price);
     }
 
-    public List<ProductEntity> searchByPriceLessThanEqual(double price){
-//        return productRepository.findByPriceLessThanEqual(price);
-//        return productRepository.findPriceLessThanEqualJPQL(price);
-        return productRepository.findPriceLessThanEqualNative(price);
+    public List<ProductEntity> searchByColorAndQuanlity(Color color, int quanlity){
+//        return productRepository.findByProductDetail_Color_ColorEAndProductDetail_QuantityGreaterThan(color, quanlity);
+//        return productRepository.findColorAndQuantityJPQL(color, quanlity);
+        return productRepository.findColorAndQuantityNative(color, quanlity);
     }
 
-    public List<ProductEntity> searchByCreateDate(Date date){
-//        return productRepository.findByCreateDateAfter(date);
-//        return productRepository.findCreateDateAfterJPQL(date);
-        return productRepository.findCreateDateAfterNative(date);
+    public List<ProductEntity> searchByColorAndSize(Color color, Size size){
+//        return productRepository.findByProductDetail_Color_ColorEAndProductDetail_Size_SizeEOrderByCreateDateDesc(color, size);
+//        return productRepository.findCorlorAndSizeOrderByCreateDateJPQL(color, size);
+        return productRepository.findColorAndSizeOrderByCreateDateNative(color, size);
     }
 
-    public List<ProductEntity> searchByCreateDateBetween(Date timeStart, Date timeEnd){
-//        return productRepository.findByCreateDateBetween(timeStart, timeEnd);
-//        return productRepository.findCreateDateBetweenJPQL(timeStart, timeEnd);
-        return productRepository.findCreateDateBetweenNative(timeStart, timeEnd);
-    }
-*/
+//    public List<ProductEntity> searchByCreateDateBetween(Date timeStart, Date timeEnd){
+////        return productRepository.findByCreateDateBetween(timeStart, timeEnd);
+////        return productRepository.findCreateDateBetweenJPQL(timeStart, timeEnd);
+////        return productRepository.findCreateDateBetweenNative(timeStart, timeEnd);
+//    }
 
 }

@@ -3,10 +3,11 @@ package com.manhle.entities;
 import com.manhle.enums.Color;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "productdetail")
-public class ProductDetailEntity {
+public class ProductDetailEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,16 +17,16 @@ public class ProductDetailEntity {
 
     private int price;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @MapsId
     @JoinColumn(name = "product_id")
     private ProductEntity product;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "size_id")
     private SizeEntity size;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "color_id")
     private ColorEntity color;
 

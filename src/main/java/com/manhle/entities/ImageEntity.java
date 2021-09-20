@@ -1,10 +1,11 @@
 package com.manhle.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "image")
-public class ImageEntity {
+public class ImageEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

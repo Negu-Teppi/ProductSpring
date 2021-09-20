@@ -3,11 +3,12 @@ package com.manhle.entities;
 import com.manhle.enums.Color;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "color")
-public class ColorEntity {
+public class ColorEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

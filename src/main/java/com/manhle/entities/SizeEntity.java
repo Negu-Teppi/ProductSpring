@@ -3,11 +3,12 @@ package com.manhle.entities;
 import com.manhle.enums.Size;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "size")
-public class SizeEntity {
+public class SizeEntity implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
